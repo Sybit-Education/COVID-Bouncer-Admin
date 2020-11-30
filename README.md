@@ -2,6 +2,7 @@
 Administration of [COVID-Bouncer](https://github.com/Sybit-Education/COVID-Bouncer)
 
 [![Sybit](https://img.shields.io/badge/-Sybit-b71583.svg)](https://www.sybit.de/)
+![Node.js CI](https://github.com/Sybit-Education/COVID-Bouncer-Admin/workflows/Node.js%20CI/badge.svg)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Sybit-Education/COVID-Bouncer-Admin/blob/main/LICENSE)
 
