@@ -1,4 +1,5 @@
 # COVID-Bouncer-Admin
+
 Administration of [COVID-Bouncer](https://github.com/Sybit-Education/COVID-Bouncer)
 
 [![Sybit](https://img.shields.io/badge/-Sybit-b71583.svg)](https://www.sybit.de/)
@@ -14,22 +15,26 @@ The app is a Vue.js app. For this hackathon we wanted to try two main technologi
 * Google Firebase to persist data
 
 ## Development
-```
+
+```sh
 npm install
 ```
 
 ### Compiles and hot-reloads for development
-```
+
+```sh
 npm run serve
 ```
 
 ### Compiles and minifies for production
-```
+
+```sh
 npm run build
 ```
 
 ### Lints and fixes files
-```
+
+```sh
 npm run lint
 ```
 
@@ -43,29 +48,32 @@ VUE_APP_FIREBASE_AUTH_DOMAIN="xxxx"
 VUE_APP_FIREBASE_DATABASE_URL="xxx"
 VUE_APP_FIREBASE_PROJECT_ID="xxx"
 VUE_APP_FIREBASE_STORAGE_BUCKET="xxxx"
-VUE_APP_FIREBASE_MESAGING_SENDER_ID="xxx"
+VUE_APP_FIREBASE_MESSAGING_SENDER_ID="xxx"
 VUE_APP_FIREBASE_APP_ID="xxxx"
 VUE_APP_FIREBASE_MEASUREMENT_ID="xxxx"
 ```
+
 You will get the values if you create a web application for Google Firestore.
 
 ## Deployment setup
-### Before 
-```
+
+### Before
+
+```sh
 npm install -g firebase-tools
-```
-```
 firebase login
 ```
+
 ### Deploying a Vue Site with Firebase Hosting
-https://www.youtube.com/watch?v=a-0W40NM0dI
+
+<https://www.youtube.com/watch?v=a-0W40NM0dI>
 
 ## Manually deployment
+
 ### Serve before deploy
-```javascript
+
+```h
 npm run test-deploy
-```
-```javascript
 npm run deploy
 ```
 
