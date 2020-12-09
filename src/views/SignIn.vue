@@ -25,21 +25,23 @@
       </b-form-group>
       </b-col>
       <b-col>
-      <b-form-group id="input-group-initials" label="Your Initials:" label-for="input-initials">
+      <b-form-group id="input-group-initials"
+        label="Your Initials:"
+        label-for="input-initials"
+        description="Your initials will be used as a username. This in connection with your email ensures a uniqueness. Example: mmn">
         <b-form-input
           id="input-initials"
           type="text"
           class="input-styling"
           v-model="signIn.initials"
-          required></b-form-input>
-        <b-form-text id="initials-help-block">
-          Your initials will be used as a username. This in connection with your email ensures a uniqueness.
-          Example: mmn
-        </b-form-text>
+          required />
       </b-form-group>
       </b-col>
       <b-col>
-      <b-form-group id="input-group-master-password" label="Master Password:" label-for="input-master-password">
+      <b-form-group id="input-group-master-password"
+        label="Master Password:"
+        label-for="input-master-password"
+        description="Inital master passwort to get access to instance.">
         <b-form-input
           id="input-master-password"
           type="password"
