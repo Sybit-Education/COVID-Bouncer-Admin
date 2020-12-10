@@ -1,8 +1,5 @@
 <template>
   <b-container>
-    <b-row class="mt-5 mb-1">
-      <h1>Administrators</h1>
-    </b-row>
     <b-row>
       <b-col cols="12" md="6" class="px-0">
         <b-form-group
