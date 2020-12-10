@@ -2,7 +2,6 @@ import { $db } from '@/services/firebase.service'
 // import { roomService } from '@/services/room.service'
 class ContactReportService {
   async getContactsOfUserByID (userId, date) {
-    console.log(userId)
     // let myRoom
     const userList = []
     const userRef = await $db().doc('User/' + userId)

@@ -28,8 +28,8 @@ export default {
           icon: 'chevron-left'
         },
         manage: {
-          title: 'Manage',
-          link: 'manage',
+          title: 'Contact Report',
+          link: 'contact-report',
           icon: 'border-all'
         }
       }
