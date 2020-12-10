@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import SignIn from '../views/SignIn'
+import ContactReport from '@/views/ContactReport'
 import { userService } from '@/services/user.service'
 
 Vue.use(VueRouter)
@@ -11,6 +12,12 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    beforeEnter: guard
+  },
+  {
+    path: '/contact-report',
+    name: 'ContactReport',
+    component: ContactReport,
     beforeEnter: guard
   },
   {
