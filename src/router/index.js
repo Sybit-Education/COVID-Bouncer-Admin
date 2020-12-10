@@ -23,7 +23,8 @@ const routes = [
       } else {
         next()
       }
-    }
+    },
+    meta: { displayNavbar: false }
   }
 ]
 
