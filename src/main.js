@@ -8,6 +8,14 @@ import Notifications from 'vue-notification'
 import firebase from 'firebase/app'
 import * as fbService from './services/firebase.service'
 
+//  Fontawesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret, faChevronLeft, faBorderAll } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faUserSecret, faChevronLeft, faBorderAll)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 Vue.use(BootstrapVue)
 
 Vue.prototype.$firebase = firebase
