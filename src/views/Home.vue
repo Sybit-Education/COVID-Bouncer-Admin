@@ -1,7 +1,7 @@
 <template>
 <b-container>
   <b-row>
-    <b-col v-for="cards in card" :key="cards.id" :cols="cards.col">
+    <b-col v-for="cards in card" :key="cards.id" :cols="cards.col" >
       <dashboardCard :title="cards.title" :text="cards.text" :link="cards.link" :imgLink="cards.imgLink"></dashboardCard>
     </b-col>
   </b-row>

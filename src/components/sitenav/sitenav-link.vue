@@ -1,5 +1,5 @@
 <template>
-  <b-row @click="router()">
+  <b-row @click="router()" class="ml-2">
     <b-col>
     <div cols="4" class="link-icon">
     </div>
@@ -35,7 +35,7 @@ export default {
 
 <style lang="sass" scoped>
 h5
-  font-size: 16px
+  font-size: 18px
 
 h5:hover
   cursor: pointer

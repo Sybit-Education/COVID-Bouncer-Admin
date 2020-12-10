@@ -45,12 +45,12 @@ export default {
 
 <style scoped>
 .card {
-transition: box-shadow .3s ;
-transition: all .5s ease;
+transition: box-shadow .2s ;
+transition: all .2s ease;
 }
 .card:hover {
   transform: scale(1.03);
-  transition: all .4s ease;
+  transition: all .2s ease;
   box-shadow: 0 0 30px rgba(33,33,33,.2);
   cursor: pointer;
 }
