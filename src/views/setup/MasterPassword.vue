@@ -1,5 +1,5 @@
 <template>
-<b-row>
+<b-row class="mt-5">
   <b-col class="masterPassword">
     <form>
       <b-col>
@@ -16,7 +16,7 @@
         </b-form-group>
       </b-col>
       <b-col>
-        <b-button class="mt-2 sy-background signIn-button" @click="setMasterPassword">Nächster Schritt</b-button>
+        <b-button class="mt-2 sy-background nextButton" @click="setMasterPassword">Nächster Schritt</b-button>
       </b-col>
     </form>
   </b-col>
@@ -55,6 +55,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+.nextButton
+ border: none
+ font-weight: bold
+.input-styling:focus
+ box-shadow: 0 0 0 0.2rem rgba(181, 22, 131, 0.25)
+ border: none
 </style>
