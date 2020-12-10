@@ -18,6 +18,7 @@ const routes = [
     path: '/signin',
     name: 'SignIn',
     component: SignIn,
+    meta: { displayNavbar: false },
     beforeEnter: (to, from, next) => {
       if (userService.isLoggedIn()) {
         next({ name: 'Home' })
