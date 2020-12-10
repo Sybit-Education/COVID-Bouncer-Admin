@@ -17,17 +17,17 @@ export default {
   data: function () {
     return {
       link: {
-        anlegen: {
+        create: {
           title: 'anlegen',
           link: 'anlegen',
           icon: 'user-secret'
         },
-        bearbeiten: {
+        edit: {
           title: 'bearbeiten',
           link: 'bearbeiten',
           icon: 'chevron-left'
         },
-        verwalten: {
+        manage: {
           title: 'verwalten',
           link: 'verwalten',
           icon: 'border-all'
