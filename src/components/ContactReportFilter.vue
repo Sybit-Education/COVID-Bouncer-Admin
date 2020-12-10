@@ -1,9 +1,7 @@
 <template>
   <div id="contact-report-filter">
       <b-form inline>
-        <label class="sr-only" for="inline-form-input-name">Name</label>
         <b-form-select
-          id="inline-form-input-name"
           class="mb-2 mr-sm-2 mb-sm-0"
           v-model="selected"
           :options="users"
@@ -34,11 +32,11 @@ export default {
     async fetchUser () {
       const response = await userService.getAllUser()
       this.users = response.map(user => {
-        console.log(user)
-        return { text: `${user.lastName}, ${user.firstName}`, value: user.id }
+        return { text: `${user.data().lastName}, ${user.data().firstName}`, value: user.id }
       })
     },
     async getContactById () {
+      console.log(this.selected)
       const response = await contactReportService.getContactsOfUserByID(this.selected.value)
       this.contacts = response.map(user => {
         console.log(user)

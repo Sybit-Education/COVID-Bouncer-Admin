@@ -8,7 +8,7 @@ class ContactReportService {
     await $db().collection('Rooms').get().then(querySnapshot => {
       querySnapshot.forEach((room) => {
         $db()
-          .collection('Rooms/' + room.id + '/CheckIn')
+          .collectionGroup('Rooms/' + room.id + '/CheckIn')
           .where('date', '==', currentDate)
           .get()
           .then(querySnapshot => {

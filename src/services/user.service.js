@@ -89,7 +89,7 @@ class UserService {
     const users = []
     const querySnapshot = await $db().collection(COLLECTION_NAME).orderBy('lastName').get()
     querySnapshot.forEach((doc) => {
-      users.push(doc.data())
+      users.push(doc)
     })
     return users
   }
