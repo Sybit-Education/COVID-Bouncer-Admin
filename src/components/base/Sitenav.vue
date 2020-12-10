@@ -18,18 +18,18 @@ export default {
     return {
       link: {
         create: {
-          title: 'Anlegen',
-          link: 'anlegen',
+          title: 'Create',
+          link: 'create',
           icon: 'user-secret'
         },
         edit: {
-          title: 'Bearbeiten',
-          link: 'bearbeiten',
+          title: 'Edit',
+          link: 'edit',
           icon: 'chevron-left'
         },
         manage: {
-          title: 'Verwalten',
-          link: 'verwalten',
+          title: 'Manage',
+          link: 'manage',
           icon: 'border-all'
         }
       }
