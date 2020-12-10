@@ -18,17 +18,17 @@ export default {
     return {
       link: {
         create: {
-          title: 'anlegen',
+          title: 'Anlegen',
           link: 'anlegen',
           icon: 'user-secret'
         },
         edit: {
-          title: 'bearbeiten',
+          title: 'Bearbeiten',
           link: 'bearbeiten',
           icon: 'chevron-left'
         },
         manage: {
-          title: 'verwalten',
+          title: 'Verwalten',
           link: 'verwalten',
           icon: 'border-all'
         }
