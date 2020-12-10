@@ -13,37 +13,37 @@ export default {
   data: function () {
     return {
       card: {
-        raumErstellen: {
-          title: 'Create room',
-          text: 'Here you can create a room',
+        createRoom: {
+          title: 'Raum anlegen',
+          text: 'Hier können sie einen Raum anlegen',
           link: 'test1',
           imgLink: 'https://images.unsplash.com/photo-1524989899036-b1c54afba1c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
           col: '4'
         },
-        raumVerwalten: {
-          title: 'Manage room',
-          text: 'Here you can manage a specific room',
+        manageRoom: {
+          title: 'Raum verwalten',
+          text: 'Hier können sie einen Raum verwalten',
           link: 'test2',
           imgLink: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80',
           col: '4'
         },
-        raumListe: {
-          title: 'List of rooms',
-          text: 'Here you can see a list of all rooms',
+        roomList: {
+          title: 'Raum liste',
+          text: 'Hier können sie eine Liste sehen',
           link: 'test3',
           imgLink: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
           col: '4'
         },
-        UserListe: {
-          title: 'List of employees',
-          text: 'Here you can see a list of the employees',
+        userList: {
+          title: 'Liste der Mitarbeiter',
+          text: 'Hier können sie eine Liste sehen',
           link: 'test3',
           imgLink: 'https://wallpapercave.com/wp/wp2231069.jpg',
           col: '7'
         },
-        UserRaum: {
-          title: 'Room trends',
-          text: 'Here you can see trends of the rooms',
+        userRoom: {
+          title: 'Trends der Räume',
+          text: 'Hier können sie eine Liste sehen',
           link: 'test3',
           imgLink: 'https://images.unsplash.com/photo-1541194577687-8c63bf9e7ee3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
           col: '5'
