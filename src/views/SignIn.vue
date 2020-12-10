@@ -100,11 +100,6 @@ export default {
 .signIn-button
   border: none
   font-weight: bold
-.input-first-name
-  width: 100%
-  border: none
-  border-bottom: 2px solid black
-  margin-bottom: 2rem
 .input-styling:focus
   box-shadow: 0 0 0 0.2rem rgba(181, 22, 131, 0.25)
   border: none
