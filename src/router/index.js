@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MasterPassword from '../views/setup/MasterPassword'
+import Location from '../views/setup/Location'
 import SignIn from '../views/SignIn'
 import { userService } from '@/services/user.service'
 
@@ -12,6 +13,11 @@ const routes = [
     name: 'MasterPassword',
     component: MasterPassword,
     beforeEnter: guard
+  },
+  {
+    path: '/step2',
+    name: 'Location',
+    component: Location
   },
   {
     path: '/signin',
