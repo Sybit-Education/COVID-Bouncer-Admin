@@ -38,6 +38,7 @@ const routes = [
     path: '/administrators',
     name: 'AdminCredentials',
     component: AdminCredentials,
+    // TODO: Update beforeEnter
     beforeEnter: async (to, from, next) => {
       const currentUser = await userService.currentUser()
       if (userService.isLoggedIn() && currentUser.isAdmin === true) {
