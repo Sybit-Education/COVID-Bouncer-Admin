@@ -1,18 +1,26 @@
 <template>
   <div v-if="showNavbar" class="sitenav">
     <div class="sidenav-content">
-    <h4 class="sidenav-link">Test</h4>
+      <h4 class="sidenav-headline">Rooms-Admin</h4>
+      <hr/>
+      <div class="sidenav-links">
+        <sitenavLink title="Dashboard" link="test" icon="Test"></sitenavLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import sitenavLink from '@/components/sitenav/sitenav-link'
 export default {
   name: 'sitenav',
   computed: {
     showNavbar () {
       return this.$route.meta.displayNavbar ?? true
     }
+  },
+  components: {
+    sitenavLink
   }
 }
 </script>
@@ -30,10 +38,22 @@ export default {
   box-shadow: 2px 0px 10px gray
   border-top-right-radius: 8px
   border-bottom-right-radius: 8px
+  color: white
 
 .sidenav-content
   padding: 16px
 
-.sidenav-link
+.sidenav-links
+  margin-top: 16px
+
+.sidenav-headline
+  font-weight: 600
+  margin-bottom: 16px
+  font-size: 24px
+
+hr
   color: white
+  display: block
+  height: 1px
+  border-top: 1px solid white
 </style>
