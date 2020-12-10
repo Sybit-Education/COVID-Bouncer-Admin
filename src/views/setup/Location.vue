@@ -22,6 +22,7 @@
         </b-col>
         <b-col>
           <b-button class="mt-2 sy-background nextButton" @click="addLocation">Next step</b-button>
+          <b-button class="float-right sy-background nextButton" @click="skipStep">Skip step</b-button>
         </b-col>
       </form>
     </b-col>
@@ -46,6 +47,9 @@ export default {
       } else {
 
       }
+    },
+    skipStep () {
+      this.$router.push({ name: 'Dashboard' })
     },
     showErrorNotification (message) {
       this.$notify({
