@@ -31,15 +31,6 @@ class ContactReportService {
     // return await roomService.getRoomByID(myRoom)
     return userList
   }
-
-  async getUserListByRefs (userRefList) {
-    const userList = []
-    await userRefList.forEach((user) => {
-      const querySnapshot = user.get()
-      userList.push(querySnapshot)
-    })
-    return userList
-  }
 }
 
 export const contactReportService = new ContactReportService()
