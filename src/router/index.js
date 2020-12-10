@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import SignIn from '../views/SignIn'
 import { userService } from '@/services/user.service'
+import RoomOverview from '@/views/RoomOverview'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,12 @@ const routes = [
       }
     },
     meta: { displayNavbar: false }
+  },
+  {
+    path: '/rooms',
+    name: 'RoomOverview',
+    component: RoomOverview,
+    beforeEnter: guard
   }
 ]
 
