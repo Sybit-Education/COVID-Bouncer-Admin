@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import SignIn from '../views/SignIn'
+import AdminCredentials from '@/views/AdminCredentials'
 import ContactReport from '@/views/ContactReport'
 import { userService } from '@/services/user.service'
 
@@ -24,11 +25,25 @@ const routes = [
     path: '/signin',
     name: 'SignIn',
     component: SignIn,
+    meta: { displayNavbar: false },
     beforeEnter: (to, from, next) => {
       if (userService.isLoggedIn()) {
         next({ name: 'Home' })
       } else {
         next()
+      }
+    }
+  },
+  {
+    path: '/administrators',
+    name: 'AdminCredentials',
+    component: AdminCredentials,
+    beforeEnter: async (to, from, next) => {
+      const currentUser = await userService.currentUser()
+      if (userService.isLoggedIn() && currentUser.isAdmin === true) {
+        next()
+      } else {
+        next({ name: 'Home' })
       }
     }
   }
