@@ -1,6 +1,9 @@
 <template>
-<b-row class="mt-5">
+<b-row class="mt-3 align-content-center">
   <b-col class="masterPassword">
+    <b-col>
+      <h3 class="text-center pb-3">Welcome to the Setup from the COVID-Bouncer Admin</h3>
+    </b-col>
     <form>
       <b-col>
         <b-form-group label="Setup the master password">
@@ -13,10 +16,13 @@
             max="100"
             required>
           </b-form-input>
+          <b-form-text id="initials-help-block">
+            This step can not be skipped.
+          </b-form-text>
         </b-form-group>
       </b-col>
       <b-col>
-        <b-button class="mt-2 sy-background nextButton" @click="setMasterPassword">Nächster Schritt</b-button>
+        <b-button class="mt-2 sy-background nextButton" @click="setMasterPassword">Next step</b-button>
       </b-col>
     </form>
   </b-col>
