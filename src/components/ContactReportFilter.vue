@@ -14,25 +14,34 @@
         </b-form-select>
           <b-form-datepicker id="example-datepicker-start" class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
         <b-form-datepicker id="example-datepicker-end"  class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
-        <b-button variant="primary">Show Contacts</b-button>
+        <b-button variant="primary" @click="getContactById()">Show Contacts</b-button>
       </b-form>
   </div>
 </template>
 
 <script>
 import { userService } from '@/services/user.service'
+import { contactReportService } from '@/services/contactReport.service'
 export default {
   data () {
     return {
       selected: null,
-      users: []
+      users: [],
+      contacts: []
     }
   },
   methods: {
     async fetchUser () {
       const response = await userService.getAllUser()
       this.users = response.map(user => {
-        return { text: `${user.lastName}, ${user.firstName}`, value: user.initials }
+        console.log(user)
+        return { text: `${user.lastName}, ${user.firstName}`, value: user.id }
+      })
+    },
+    async getContactById () {
+      const response = await contactReportService.getContactsOfUserByID(this.selected.value)
+      this.contacts = response.map(user => {
+        console.log(user)
       })
     }
   },
