@@ -29,10 +29,10 @@ export default {
   methods: {
     async fetchUser () {
       const response = await userService.getAllUser()
-      this.users = response.map(user => {
-        console.log(user)
-        return { text: `${user.lastName}, ${user.firstName}`, value: user.initials }
-      })
+      this.users = this.users.concat(
+        response.map(user => {
+          return { text: `${user.lastName}, ${user.firstName}`, value: user.initials }
+        }))
     }
   },
   mounted () {
