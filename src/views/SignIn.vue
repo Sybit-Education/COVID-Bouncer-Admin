@@ -41,7 +41,7 @@
       <b-form-group id="input-group-master-password"
         label="Master Password:"
         label-for="input-master-password"
-        description="Inital master passwort to get access to instance.">
+        description="Inital master password to get access to instance.">
         <b-form-input
           id="input-master-password"
           type="password"
