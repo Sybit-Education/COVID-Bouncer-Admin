@@ -85,6 +85,15 @@ class UserService {
     this.user = null
   }
 
+  async getAllUser () {
+    const users = []
+    const querySnapshot = await $db().collection(COLLECTION_NAME).orderBy('lastName').get()
+    querySnapshot.forEach((doc) => {
+      users.push(doc.data())
+    })
+    return users
+  }
+
   async getSignedRoom (date) {
     let myRoom
     const currentUserID = await this.currentUser()

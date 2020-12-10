@@ -6,27 +6,38 @@
           id="inline-form-input-name"
           class="mb-2 mr-sm-2 mb-sm-0"
           v-model="selected"
-          :options="user"
+          :options="users"
         ></b-form-select>
-          <b-form-datepicker id="example-datepicker" class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
-        <b-form-datepicker id="example-datepicker"  class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
+          <b-form-datepicker id="example-datepicker-start" class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
+        <b-form-datepicker id="example-datepicker-end"  class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
         <b-button variant="primary">Show Contacts</b-button>
       </b-form>
   </div>
 </template>
 
 <script>
+import { userService } from '@/services/user.service'
 export default {
   data () {
     return {
       selected: null,
-      user: [
-        { value: null, text: 'Please select an user' },
-        { value: 'ssr', text: 'Stephan S.' }
+      users: [
+        { value: null, text: 'Please Select User' }
       ]
     }
+  },
+  methods: {
+    async fetchUser () {
+      const response = await userService.getAllUser()
+      this.users = response.map(user => {
+        console.log(user)
+        return { text: `${user.lastName}, ${user.firstName}`, value: user.initials }
+      })
+    }
+  },
+  mounted () {
+    this.fetchUser()
   }
-
 }
 </script>
 
