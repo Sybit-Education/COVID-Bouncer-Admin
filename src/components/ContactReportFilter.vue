@@ -12,7 +12,7 @@
           </template>
         </b-form-select>
           <b-form-datepicker id="example-datepicker" v-model='selectedDate' class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
-        <b-button variant="primary" @click="getContactById()">Show Contacts</b-button>
+        <b-button variant="primary" @click="getContactById()" class="d-print-none">Show Contacts</b-button>
       </b-form>
     </b-row>
     <b-row>

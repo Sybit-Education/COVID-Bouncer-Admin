@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showNavbar" class="sitenav">
+  <div v-if="showNavbar" class="sitenav d-print-none">
     <div class="sidenav-content">
       <h4 class="sidenav-headline">Rooms-Admin</h4>
       <hr/>
