@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home'
+import MasterPassword from '../views/setup/MasterPassword'
 import SignIn from '../views/SignIn'
 import { userService } from '@/services/user.service'
 
@@ -9,8 +9,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'MasterPassword',
+    component: MasterPassword,
     beforeEnter: guard
   },
   {
