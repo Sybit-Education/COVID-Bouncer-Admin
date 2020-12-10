@@ -1,8 +1,9 @@
 <template>
   <div>
   <b-card
-    img-src="https://picsum.photos/900/250/?image=3"
+    :img-src="this.imgLink"
     img-alt="Card Image"
+    img-height="200"
     :title="this.title"
     class="card my-4"
     @click="router()"
@@ -28,6 +29,10 @@ export default {
     link: {
       type: String,
       default: 'link'
+    },
+    imgLink: {
+      type: String,
+      default: ''
     }
   },
   methods: {
