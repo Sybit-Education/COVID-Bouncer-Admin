@@ -11,16 +11,20 @@
             <b-form-select-option :value="null" disabled>-- Please select an user --</b-form-select-option>
           </template>
         </b-form-select>
-          <b-form-datepicker id="example-datepicker" v-model='selectedDate' class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
-        <b-button variant="primary" @click="getContactById()" class="d-print-none">Show Contacts</b-button>
+          <b-form-datepicker
+            v-model="selectedDate"
+            class="mb-2 mr-sm-2 mb-sm-0" />
+        <b-button
+          variant="primary"
+          @click="getContactById()"
+          class="d-print-none">Show Contacts</b-button>
       </b-form>
     </b-row>
     <b-row>
-        <b-table :items="contacts" :fields="fields" show-empty id="contact-report-table">
-          <template #empty='scope' >{{scope.emptyText}}</template>
-  </b-table>
+      <b-table :items="contacts" :fields="fields" show-empty id="contact-report-table">
+        <template #empty='scope' >{{scope.emptyText}}</template>
+      </b-table>
     </b-row>
-
   </div>
 </template>
 
@@ -54,7 +58,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
