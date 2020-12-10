@@ -36,7 +36,7 @@ export default {
   data () {
     return {
       config: {
-        masterPassword: ''
+        masterPassword: undefined
       }
     }
   },
@@ -46,7 +46,7 @@ export default {
       if (!response) {
         this.showErrorNotification('Error while setting the master password.')
       } else {
-
+        await this.$router.push({ name: 'Location' })
       }
     },
     showErrorNotification (message) {

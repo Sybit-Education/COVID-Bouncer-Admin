@@ -15,7 +15,7 @@ const routes = [
     beforeEnter: guard
   },
   {
-    path: '/step2',
+    path: '/setup/location',
     name: 'Location',
     component: Location
   },
