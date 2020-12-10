@@ -1,13 +1,12 @@
 <template>
-  <b-row @click="router()" class="ml-2">
-    <b-col>
-    <div cols="4" class="link-icon">
-    </div>
-    <div cols="8" class="link-text">
+  <b-row @click="router()">
+    <b-col cols="2" class="link-icon">
+      <font-awesome-icon :icon="['fas', icon]" />
+    </b-col>
+    <b-col cols="10" class="link-text align-self-center">
       <h5>
         {{title}}
       </h5>
-    </div>
     </b-col>
   </b-row>
 </template>
@@ -35,7 +34,8 @@ export default {
 
 <style lang="sass" scoped>
 h5
-  font-size: 18px
+  font-size: 16px
+  margin: 0
 
 h5:hover
   cursor: pointer

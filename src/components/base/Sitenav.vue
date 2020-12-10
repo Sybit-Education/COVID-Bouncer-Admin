@@ -4,7 +4,7 @@
       <h4 class="sidenav-headline">Rooms-Admin</h4>
       <hr/>
       <div class="sidenav-links" v-for="links in link" :key="links.id">
-        <sitenavLink :title="links.title" :link="links.link" icon="Test"></sitenavLink>
+        <sitenavLink :title="links.title" :link="links.link" :icon="links.icon"></sitenavLink>
       </div>
     </div>
   </div>
@@ -19,15 +19,18 @@ export default {
       link: {
         anlegen: {
           title: 'anlegen',
-          link: 'anlegen'
+          link: 'anlegen',
+          icon: 'user-secret'
         },
         bearbeiten: {
           title: 'bearbeiten',
-          link: 'bearbeiten'
+          link: 'bearbeiten',
+          icon: 'chevron-left'
         },
         verwalten: {
           title: 'verwalten',
-          link: 'verwalten'
+          link: 'verwalten',
+          icon: 'border-all'
         }
       }
 
