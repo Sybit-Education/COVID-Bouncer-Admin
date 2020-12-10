@@ -36,4 +36,8 @@ export default {
 <style lang="sass" scoped>
 h5
   font-size: 16px
+
+h5:hover
+  cursor: pointer
+  transform: scale(1.03)
 </style>

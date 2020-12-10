@@ -3,8 +3,8 @@
     <div class="sidenav-content">
       <h4 class="sidenav-headline">Rooms-Admin</h4>
       <hr/>
-      <div class="sidenav-links">
-        <sitenavLink title="Dashboard" link="test" icon="Test"></sitenavLink>
+      <div class="sidenav-links" v-for="links in link" :key="links.id">
+        <sitenavLink :title="links.title" :link="links.link" icon="Test"></sitenavLink>
       </div>
     </div>
   </div>
@@ -14,6 +14,25 @@
 import sitenavLink from '@/components/sitenav/sitenav-link'
 export default {
   name: 'sitenav',
+  data: function () {
+    return {
+      link: {
+        anlegen: {
+          title: 'anlegen',
+          link: 'anlegen'
+        },
+        bearbeiten: {
+          title: 'bearbeiten',
+          link: 'bearbeiten'
+        },
+        verwalten: {
+          title: 'verwalten',
+          link: 'verwalten'
+        }
+      }
+
+    }
+  },
   computed: {
     showNavbar () {
       return this.$route.meta.displayNavbar ?? true
