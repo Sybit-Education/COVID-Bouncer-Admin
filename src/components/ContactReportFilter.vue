@@ -1,19 +1,26 @@
 <template>
   <div id="contact-report-filter">
+    <b-row>
       <b-form inline >
         <b-form-select
           class="mb-2 mr-sm-2 mb-sm-0"
-          v-model="selected"
+          v-model="selectedUser"
           :options="users"
         >
           <template #first>
             <b-form-select-option :value="null" disabled>-- Please select an user --</b-form-select-option>
           </template>
         </b-form-select>
-          <b-form-datepicker id="example-datepicker-start" class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
-        <b-form-datepicker id="example-datepicker-end"  class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
+          <b-form-datepicker id="example-datepicker" v-model='selectedDate' class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
         <b-button variant="primary" @click="getContactById()">Show Contacts</b-button>
       </b-form>
+    </b-row>
+    <b-row>
+        <b-table :items="contacts" :fields="fields" show-empty id="contact-report-table">
+          <template #empty='scope' >{{scope.emptyText}}</template>
+  </b-table>
+    </b-row>
+
   </div>
 </template>
 
@@ -23,9 +30,11 @@ import { contactReportService } from '@/services/contactReport.service'
 export default {
   data () {
     return {
-      selected: null,
+      selectedUser: null,
       users: [],
-      contacts: []
+      fields: ['firstName', 'lastName'],
+      contacts: [],
+      selectedDate: ''
     }
   },
   methods: {
@@ -36,8 +45,8 @@ export default {
       })
     },
     async getContactById () {
-      const response = await contactReportService.getContactsOfUserByID(this.selected)
-      console.log(response)
+      const response = await contactReportService.getContactsOfUserByID(this.selectedUser, this.selectedDate)
+      this.contacts = response
     }
   },
   mounted () {

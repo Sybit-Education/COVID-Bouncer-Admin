@@ -1,13 +1,7 @@
 import { $db } from '@/services/firebase.service'
 // import { roomService } from '@/services/room.service'
 class ContactReportService {
-  async getContactsOfUserByID (userId) {
-    const currentDate = new Date().toISOString().slice(0, 10)
-
-    return this.getSignedRoom(userId, currentDate)
-  }
-
-  async getSignedRoom (userId, date) {
+  async getContactsOfUserByID (userId, date) {
     console.log(userId)
     // let myRoom
     const userList = []
