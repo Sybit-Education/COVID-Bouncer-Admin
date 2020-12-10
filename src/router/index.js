@@ -1,8 +1,9 @@
+import { userService } from '@/services/user.service'
+import AdminCredentials from '@/views/AdminCredentials'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import SignIn from '../views/SignIn'
-import { userService } from '@/services/user.service'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,19 @@ const routes = [
         next({ name: 'Home' })
       } else {
         next()
+      }
+    }
+  },
+  {
+    path: '/administrators',
+    name: 'AdminCredentials',
+    component: AdminCredentials,
+    beforeEnter: async (to, from, next) => {
+      const currentUser = await userService.currentUser()
+      if (userService.isLoggedIn() && currentUser.isAdmin === true) {
+        next()
+      } else {
+        next({ name: 'Home' })
       }
     }
   }
