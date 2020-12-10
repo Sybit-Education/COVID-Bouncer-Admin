@@ -7,7 +7,11 @@
           class="mb-2 mr-sm-2 mb-sm-0"
           v-model="selected"
           :options="users"
-        ></b-form-select>
+        >
+          <template #first>
+            <b-form-select-option :value="null" disabled>-- Please select an user --</b-form-select-option>
+          </template>
+        </b-form-select>
           <b-form-datepicker id="example-datepicker-start" class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
         <b-form-datepicker id="example-datepicker-end"  class="mb-2 mr-sm-2 mb-sm-0"></b-form-datepicker>
         <b-button variant="primary">Show Contacts</b-button>
@@ -21,18 +25,15 @@ export default {
   data () {
     return {
       selected: null,
-      users: [
-        { value: null, text: 'Please Select User' }
-      ]
+      users: []
     }
   },
   methods: {
     async fetchUser () {
       const response = await userService.getAllUser()
-      this.users = this.users.concat(
-        response.map(user => {
-          return { text: `${user.lastName}, ${user.firstName}`, value: user.initials }
-        }))
+      this.users = response.map(user => {
+        return { text: `${user.lastName}, ${user.firstName}`, value: user.initials }
+      })
     }
   },
   mounted () {
