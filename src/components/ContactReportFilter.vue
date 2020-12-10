@@ -1,6 +1,6 @@
 <template>
   <div id="contact-report-filter">
-      <b-form inline>
+      <b-form inline >
         <b-form-select
           class="mb-2 mr-sm-2 mb-sm-0"
           v-model="selected"
@@ -36,11 +36,8 @@ export default {
       })
     },
     async getContactById () {
-      console.log(this.selected)
-      const response = await contactReportService.getContactsOfUserByID(this.selected.value)
-      this.contacts = response.map(user => {
-        console.log(user)
-      })
+      const response = await contactReportService.getContactsOfUserByID(this.selected)
+      console.log(response)
     }
   },
   mounted () {
