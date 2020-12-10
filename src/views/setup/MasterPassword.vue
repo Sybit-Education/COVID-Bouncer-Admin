@@ -6,7 +6,7 @@
     </b-col>
     <form>
       <b-col>
-        <b-form-group label="Setup the master password">
+        <b-form-group label="1. Step: Setup the master password">
           <b-form-input
             id="input-master-password"
             class="input-styling"
