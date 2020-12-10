@@ -4,6 +4,7 @@ import MasterPassword from '../views/setup/MasterPassword'
 import Location from '../views/setup/Location'
 import SignIn from '../views/SignIn'
 import { userService } from '@/services/user.service'
+import Building from '@/views/setup/Building'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,12 @@ const routes = [
     path: '/setup/location',
     name: 'Location',
     component: Location
+  },
+  {
+    path: '/setup/building',
+    name: 'Building',
+    component: Building,
+    props: true
   },
   {
     path: '/signin',

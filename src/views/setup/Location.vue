@@ -44,7 +44,7 @@ export default {
       if (!response) {
         this.showErrorNotification('Error while setting the master password.')
       } else {
-
+        await this.$router.push({ name: 'Building', params: { location: this.location } })
       }
     },
     showErrorNotification (message) {
@@ -54,6 +54,14 @@ export default {
         title: 'Important message',
         text: message
       })
+    },
+    async getLocations () {
+      const response = await locationService.getAllLocations()
+      if (!response) {
+        this.showErrorNotification('Error while setting the master password.')
+      } else {
+
+      }
     }
   }
 }
