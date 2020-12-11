@@ -43,9 +43,9 @@ export default {
     async addLocation () {
       const response = await locationService.setLocation(this.location)
       if (!response) {
-        this.showErrorNotification('Error while setting the master password.')
+        this.showErrorNotification('Error while setting a new Location.')
       } else {
-        await this.$router.push({ name: 'Building', params: { location: this.location } })
+        await this.$router.push({ name: 'Building', params: { location: response.id } })
       }
     },
     skipStep () {

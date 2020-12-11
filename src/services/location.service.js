@@ -7,11 +7,6 @@ class LocationService {
     return $db()
       .collection(COLLECTION_NAME)
       .add({ Location: location })
-      .then(() => true)
-      .catch((error) => {
-        console.log('Error writing document: ', +error)
-        return false
-      })
   }
 
   async getAllLocations () {
@@ -26,20 +21,12 @@ class LocationService {
     return list
   }
 
-  async addBuilding (building, location) {
-    await $db()
+  async addBuilding (building, locationId) {
+    return $db()
       .collection(COLLECTION_NAME)
-      .where('Location', '==', location)
-      .get()
+      .doc(locationId)
       .collection('Buildings')
-      // TODO: collection add doesnt work
-      .doc()
-      .set({ Building: building })
-      .then(() => true)
-      .catch((error) => {
-        console.log('Error writing document: ', error)
-        return false
-      })
+      .add({ Building: building })
   }
 }
 

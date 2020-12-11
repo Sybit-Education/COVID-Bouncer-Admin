@@ -41,15 +41,15 @@ export default {
     }
   },
   created () {
-    console.log(this.$route)
+    // console.log(this.$route)
   },
   methods: {
     async addBuilding () {
       const response = await locationService.addBuilding(this.building, this.location)
       if (!response) {
-        this.showErrorNotification('Error while setting the master password.')
+        this.showErrorNotification('Error while setting a new building.')
       } else {
-
+        await this.$router.push({ name: 'Room', params: { location: this.location, building: response.id } })
       }
     }
   }
