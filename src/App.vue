@@ -28,4 +28,7 @@ export default {
 .main-container
   margin-left: $sitenav-size
   width: auto
+  @media print
+    margin-left: 0
+
 </style>
