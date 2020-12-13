@@ -8,11 +8,16 @@
           :options="users"
         >
           <template #first>
-            <b-form-select-option :value="null" disabled>-- Please select an user --</b-form-select-option>
+            <b-form-select-option
+              :value="null"
+              disabled>-- Please select an user --</b-form-select-option>
           </template>
         </b-form-select>
           <b-form-datepicker
             v-model="selectedDate"
+            :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+            :min="minDate"
+            :max="maxDate"
             class="mb-2 mr-sm-2 mb-sm-0" />
         <b-button
           variant="primary"
@@ -33,11 +38,18 @@ import { userService } from '@/services/user.service'
 import { contactReportService } from '@/services/contactReport.service'
 export default {
   data () {
+    const now = new Date()
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    const minDate = new Date(today)
+    minDate.setMonth(minDate.getMonth() - 1)
+    const maxDate = new Date(today)
     return {
       selectedUser: null,
       users: [],
       fields: ['firstName', 'lastName'],
       contacts: [],
+      minDate: minDate,
+      maxDate: maxDate,
       selectedDate: ''
     }
   },
