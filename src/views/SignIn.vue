@@ -3,7 +3,7 @@
   <b-col class="signIn">
     <form>
       <b-col>
-        <b-form-group id="input-group-first-name" label="Your Firstname:" label-for="input-first-name">
+        <b-form-group id="input-group-first-name" :label="$t('signIn.firstName')" label-for="input-first-name">
           <b-form-input
             id="input-first-name"
             class="input-styling"
@@ -14,7 +14,7 @@
         </b-form-group>
       </b-col>
       <b-col>
-      <b-form-group id="input-group-last-name" label="Your Lastname:" label-for="input-last-name">
+      <b-form-group id="input-group-last-name" :label="$t('signIn.lastName')" label-for="input-last-name">
         <b-form-input
           id="input-last-name"
           type="text"
@@ -26,7 +26,7 @@
       </b-col>
       <b-col>
       <b-form-group id="input-group-initials"
-        label="Your Initials:"
+        label="$t('signIn.initials')"
         label-for="input-initials"
         description="Your initials will be used as a username. This in connection with your email ensures a uniqueness. Example: mmn">
         <b-form-input
@@ -39,7 +39,7 @@
       </b-col>
       <b-col>
       <b-form-group id="input-group-master-password"
-        label="Master Password:"
+        label="$t('signIn.masterPassword')"
         label-for="input-master-password"
         description="Inital master password to get access to instance.">
         <b-form-input
@@ -53,7 +53,7 @@
       </b-form-group>
       </b-col>
       <b-col>
-        <b-button class="mt-2 sy-background signIn-button" @click="onSubmit">Sign in</b-button>
+        <b-button class="mt-2 sy-background signIn-button" @click="onSubmit" v-html="$t('signIn.signIn')" />
       </b-col>
     </form>
   </b-col>

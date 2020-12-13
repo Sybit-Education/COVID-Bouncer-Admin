@@ -1,0 +1,14 @@
+{
+  "sitenav": {
+    "title": "COVID-Bouncer Admin"
+  },
+  "signIn": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "masterPassword": "Master Password",
+    "signIn": "Sign in"
+  },
+  "administratorTable": {
+    "title": "Administrators"
+  }
+}

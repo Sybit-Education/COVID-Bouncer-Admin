@@ -1,7 +1,7 @@
 <template>
   <div v-if="showNavbar" class="sitenav">
     <div class="sidenav-content">
-      <h4 class="sidenav-headline">Rooms-Admin</h4>
+      <h4 class="sidenav-headline" v-html="$t('sitenav.title')" />
       <hr/>
       <div class="sidenav-links" v-for="links in link" :key="links.id">
         <sitenavLink :title="links.title" :link="links.link" :icon="links.icon"></sitenavLink>
