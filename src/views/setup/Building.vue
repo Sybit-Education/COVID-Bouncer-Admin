@@ -22,7 +22,7 @@
           </b-form-group>
         </b-col>
         <b-col>
-          <b-button class="mt-2 sy-background nextButton" @click="addBuilding">Next step</b-button>
+          <b-button class="mt-2 sy-background nextButton" @click="addBuilding">Finish setup</b-button>
         </b-col>
       </form>
     </b-col>
@@ -40,16 +40,13 @@ export default {
       building: undefined
     }
   },
-  created () {
-    // console.log(this.$route)
-  },
   methods: {
     async addBuilding () {
       const response = await locationService.addBuilding(this.building, this.location)
       if (!response) {
         this.showErrorNotification('Error while setting a new building.')
       } else {
-        await this.$router.push({ name: 'Room', params: { location: this.location, building: response.id } })
+        await this.$router.push({ name: '' })
       }
     }
   }

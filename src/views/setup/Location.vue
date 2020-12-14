@@ -58,14 +58,6 @@ export default {
         title: 'Important message',
         text: message
       })
-    },
-    async getLocations () {
-      const response = await locationService.getAllLocations()
-      if (!response) {
-        this.showErrorNotification('Error while setting the master password.')
-      } else {
-
-      }
     }
   }
 }
