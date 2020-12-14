@@ -37,6 +37,21 @@ class UserService {
     }
   }
 
+  async fetchAllUsers () {
+    const users = []
+    const response = await $db().collection(COLLECTION_NAME).get()
+    response.forEach(doc => {
+      users.push({
+        id: doc.id,
+        firstName: doc.data().firstName,
+        lastName: doc.data().lastName,
+        initials: doc.data().initials,
+        isAdmin: doc.data().isAdmin === undefined || doc.data().isAdmin === null ? false : doc.data().isAdmin
+      })
+    })
+    return users
+  }
+
   async fetchUserByInitials (initials) {
     const users = []
     const response = await $db().collection(COLLECTION_NAME).where('initials', '==', initials).get()
@@ -56,13 +71,14 @@ class UserService {
     const userDoc = await $db().collection(COLLECTION_NAME).doc(userId).get()
     return {
       id: userDoc.id,
+      isAdmin: userDoc.data().isAdmin,
       firstName: userDoc.data().firstName,
       lastName: userDoc.data().lastName,
       initials: userDoc.data().initials
     }
   }
 
-  currentUser () {
+  async currentUser () {
     const userId = localStorage.getItem('userId')
     let result = null
 
@@ -70,10 +86,10 @@ class UserService {
       if (this.user && this.user.userId === userId) {
         result = this.user
       } else {
-        result = this.fetchUserById(userId)
+        result = await this.fetchUserById(userId)
       }
     }
-    return Promise.resolve(result)
+    return result
   }
 
   isLoggedIn () {
@@ -100,6 +116,27 @@ class UserService {
       })
     })
     return await roomService.getRoomByID(myRoom)
+  }
+
+  async setAdminStatus (user) {
+    console.log('🚀 ~ user', user)
+    const updatedUser = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      initials: user.initials,
+      isAdmin: user.isAdmin
+    }
+    try {
+      await $db().collection(COLLECTION_NAME).doc(user.id).update(updatedUser)
+    } catch (error) {
+      console.log('Something went wrong with setting isAdmin to value x: ' + error)
+      this.$notify({
+        group: 'network',
+        title: 'Error',
+        type: 'error',
+        text: error.message
+      })
+    }
   }
 }
 

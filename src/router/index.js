@@ -1,9 +1,10 @@
+import { userService } from '@/services/user.service'
+import AdminCredentials from '@/views/AdminCredentials'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MasterPassword from '../views/setup/MasterPassword'
 import Location from '../views/setup/Location'
 import SignIn from '../views/SignIn'
-import { userService } from '@/services/user.service'
 import Building from '@/views/setup/Building'
 
 Vue.use(VueRouter)
@@ -30,11 +31,25 @@ const routes = [
     path: '/signin',
     name: 'SignIn',
     component: SignIn,
+    meta: { displayNavbar: false },
     beforeEnter: (to, from, next) => {
       if (userService.isLoggedIn()) {
         next({ name: 'Home' })
       } else {
         next()
+      }
+    }
+  },
+  {
+    path: '/administrators',
+    name: 'AdminCredentials',
+    component: AdminCredentials,
+    beforeEnter: async (to, from, next) => {
+      const currentUser = await userService.currentUser()
+      if (userService.isLoggedIn() && currentUser.isAdmin === true) {
+        next()
+      } else {
+        next({ name: 'Home' })
       }
     }
   }
