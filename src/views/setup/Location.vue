@@ -49,7 +49,7 @@ export default {
       }
     },
     skipStep () {
-      this.$router.push({ name: 'Dashboard' })
+      this.$router.push({ name: 'Home' })
     },
     showErrorNotification (message) {
       this.$notify({

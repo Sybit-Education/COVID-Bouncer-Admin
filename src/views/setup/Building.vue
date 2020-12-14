@@ -46,7 +46,7 @@ export default {
       if (!response) {
         this.showErrorNotification('Error while setting a new building.')
       } else {
-        await this.$router.push({ name: '' })
+        await this.$router.push({ name: 'Home' })
       }
     }
   }
