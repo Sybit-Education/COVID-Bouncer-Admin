@@ -45,13 +45,13 @@ export default {
     }
   },
   methods: {
-    async addBuilding () {
-      const response = await locationService.addBuilding(this.building, this.location)
-      if (!response) {
-        this.showErrorNotification('Error while setting a new building.')
-      } else {
-        await this.$router.push({ name: 'Home' })
+    addBuilding: async function () {
+      try {
+        await locationService.addBuilding(this.building, this.location)
+      } catch (error) {
+        this.showErrorNotification('Error while adding a new building')
       }
+      await this.$router.push({ name: 'Home' })
     }
   }
 }

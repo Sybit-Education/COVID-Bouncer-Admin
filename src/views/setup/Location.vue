@@ -55,10 +55,10 @@ export default {
   methods: {
     addLocation: async function () {
       try {
-        const response = await locationService.setLocation(this.location)
+        const response = await locationService.addLocation(this.location)
         this.locationId = response.id
       } catch (error) {
-        this.showErrorNotification('Error while setting a new Location.')
+        this.showErrorNotification('Error while adding a new Location.')
       }
       await this.$router.push({ name: 'Building', params: { location: this.locationId } })
     },

@@ -3,7 +3,7 @@ import { $db } from '@/services/firebase.service.js'
 const COLLECTION_NAME = 'Locations'
 
 class LocationService {
-  async setLocation (location) {
+  async addLocation (location) {
     return $db()
       .collection(COLLECTION_NAME)
       .add({ Location: location })
