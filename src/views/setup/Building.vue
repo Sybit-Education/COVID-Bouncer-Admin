@@ -1,43 +1,49 @@
 <template>
-  <b-row class="mt-3 align-content-center">
-    <b-col class="building">
-      <b-col>
-        <h3 class="text-center pb-3">Setup from the COVID-Bouncer Admin</h3>
-      </b-col>
+  <b-container class="mt-3 align-content-center">
+    <b-row>
+      <h3 class="text-center pb-3">Welcome to the Setup from the COVID-Bouncer Admin</h3>
+    </b-row>
+    <b-row>
       <form>
-        <b-col>
-          <b-form-group label="3. Step: Setup a building">
-            <b-form-input
-              id="input-master-password"
-              class="input-styling"
-              type="text"
-              v-model="building"
-              min="5"
-              max="100"
-              required>
-            </b-form-input>
-            <b-form-text id="initials-help-block">
-              This step can not be skipped.
-            </b-form-text>
-          </b-form-group>
-        </b-col>
-        <b-col>
-          <b-button class="mt-2 sy-background nextButton" @click="addBuilding">Finish setup</b-button>
-        </b-col>
+        <b-form-group
+          label="3. Step: Setup a Building"
+          id="building"
+          class="input-styling"
+          :invalid-feedback="invalidFeedback">
+          <b-form-input
+            id="input-building"
+            v-model="building"
+            :state="invalidFeedback"
+            trim>
+          </b-form-input>
+          <b-form-text id="initials-help-block">
+            This step can not be skipped
+          </b-form-text>
+          <!-- This will only be shown if the preceding input has an invalid state -->
+          <b-form-invalid-feedback id="input-live-feedback">
+            Enter at least 3 letters
+          </b-form-invalid-feedback>
+              <b-button class="mt-2 sy-background nextButton" v-if="invalidFeedback" @click="addBuilding">Finish setup
+              </b-button>
+        </b-form-group>
       </form>
-    </b-col>
-  </b-row>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 import { locationService } from '@/services/location.service'
 
 export default {
-  name: 'Building',
+  computed: {
+    invalidFeedback () {
+      return this.building.length > 3
+    }
+  },
   props: ['location'],
   data () {
     return {
-      building: undefined
+      building: ''
     }
   },
   methods: {
