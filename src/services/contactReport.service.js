@@ -4,18 +4,16 @@ class ContactReportService {
     const userList = []
     const userRef = await $db().doc('User/' + userId)
     const querySnapshot = await $db().collectionGroup('CheckIn')
-      .where('date', '==', date).get()
+      .where('date', '==', date)
+      .where('user', 'array-contains', userRef)
+      .get()
 
     querySnapshot.forEach((doc) => {
       const userRefs = doc.data().user
-      userRefs.forEach(user => {
-        if (user.id === userRef.id) {
-          userRefs.forEach(u => {
-            u.get().then(user => {
-              userList.push(user.data())
-            })
-          })
-        }
+      userRefs.forEach(u => {
+        u.get().then(user => {
+          userList.push(user.data())
+        })
       })
     })
 
