@@ -9,16 +9,15 @@ class LocationService {
       .add({ Location: location })
   }
 
-  async getAllLocations () {
-    const list = []
+  async getLocations () {
+    const locations = []
     const collections = await $db()
       .collection(COLLECTION_NAME)
       .get()
     collections.forEach(doc => {
-      list.push(doc.data().Location)
+      locations.push(doc.data().Location)
     })
-    console.log(list)
-    return list
+    return locations
   }
 
   async addBuilding (building, locationId) {

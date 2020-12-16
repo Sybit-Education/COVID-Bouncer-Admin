@@ -18,7 +18,17 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    beforeEnter: isLoggedIn
+    beforeEnter: async (to, from, next) => {
+      if (userService.isLoggedIn()) {
+        if (await setupService.isSetupCompleted()) {
+          next()
+        } else {
+          next({ name: 'MasterPassword' })
+        }
+      } else {
+        next({ name: 'SignIn' })
+      }
+    }
   },
   {
     path: '/signin',
@@ -26,7 +36,7 @@ const routes = [
     component: SignIn,
     meta: { displayNavbar: false },
     beforeEnter: (to, from, next) => {
-      if (userService.isLoggedIn() && setupService.isCompleted) {
+      if (userService.isLoggedIn()) {
         next({ name: 'Home' })
       } else {
         next()
