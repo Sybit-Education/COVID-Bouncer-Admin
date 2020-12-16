@@ -21,7 +21,6 @@
             class="mb-2 mr-sm-2" />
         <b-button
           variant="primary"
-          type="submit"
           @click="getContactById()"
           class="d-print-none mb-2 mr-sm-2">
           Show Contacts
