@@ -24,12 +24,12 @@
             Enter at least 5 letters
           </b-form-invalid-feedback>
           <b-row>
-            <b-col>
-              <b-button class="mt-2 sy-background nextButton" v-if="invalidFeedback" @click="addLocation">Next step
+            <b-col v-if="invalidFeedback">
+              <b-button class="mt-2 sy-background nextButton" @click="addLocation">Next step
               </b-button>
             </b-col>
-            <b-col>
-              <b-button class="mt-2 float-right sy-background nextButton" v-if="!invalidFeedback" @click="skipStep">Skip step</b-button>
+            <b-col v-if="!invalidFeedback">
+              <b-button class="mt-2 sy-background nextButton" @click="skipStep">Skip step</b-button>
             </b-col>
           </b-row>
         </b-form-group>
@@ -49,7 +49,8 @@ export default {
   },
   data () {
     return {
-      location: ''
+      location: '',
+      buttonText: ''
     }
   },
   methods: {
