@@ -1,48 +1,51 @@
 <template>
-<b-row class="mt-3 align-content-center">
-  <b-col class="masterPassword">
-    <b-col>
+<b-container class="mt-3 align-content-center">
+    <b-row>
       <h3 class="text-center pb-3">Welcome to the Setup from the COVID-Bouncer Admin</h3>
-    </b-col>
+    </b-row>
+  <b-row>
     <form>
-      <b-col>
-        <b-form-group label="1. Step: Setup the master password">
+        <b-form-group
+          label="1. Step: Setup the master password"
+          id="master-password"
+          class="input-styling"
+          :invalid-feedback="invalidFeedback">
           <b-form-input
             id="input-master-password"
-            class="input-styling"
-            type="text"
-            v-model="config.masterPassword"
-            min="5"
-            max="100"
-            required>
+            v-model="masterPassword"
+            :state="invalidFeedback"
+            trim>
           </b-form-input>
           <b-form-text id="initials-help-block">
-            This step can not be skipped.
+            This step can not be skipped
           </b-form-text>
+          <!-- This will only be shown if the preceding input has an invalid state -->
+          <b-form-invalid-feedback id="input-live-feedback">
+            Enter at least 5 letters
+          </b-form-invalid-feedback>
+          <b-button class="mt-2 sy-background nextButton" v-if="invalidFeedback" @click="setMasterPassword">Next step</b-button>
         </b-form-group>
-      </b-col>
-      <b-col>
-        <b-button class="mt-2 sy-background nextButton" @click="setMasterPassword">Next step</b-button>
-      </b-col>
     </form>
-  </b-col>
-</b-row>
+  </b-row>
+</b-container>
 </template>
 
 <script>
 import { configService } from '@/services/config.service'
 export default {
-  name: 'MasterPassword',
+  computed: {
+    invalidFeedback () {
+      return this.masterPassword.length > 5
+    }
+  },
   data () {
     return {
-      config: {
-        masterPassword: undefined
-      }
+      masterPassword: ''
     }
   },
   methods: {
     async setMasterPassword () {
-      const response = await configService.setMasterPassword(this.config.masterPassword)
+      const response = await configService.setMasterPassword(this.masterPassword)
       if (!response) {
         this.showErrorNotification('Error while setting the master password.')
       } else {
