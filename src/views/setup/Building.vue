@@ -8,8 +8,7 @@
         <b-form-group
           label="3. Step: Setup a Building"
           id="building"
-          class="input-styling"
-          :invalid-feedback="invalidFeedback">
+          class="input-styling">
           <b-form-input
             id="input-building"
             v-model="building"
@@ -23,8 +22,7 @@
           <b-form-invalid-feedback id="input-live-feedback">
             Enter at least 3 letters
           </b-form-invalid-feedback>
-              <b-button class="mt-2 sy-background nextButton" v-if="invalidFeedback" @click="addBuilding">Finish setup
-              </b-button>
+              <b-button class="mt-2 sy-background nextButton" v-if="invalidFeedback" @click="addBuilding">Finish setup</b-button>
         </b-form-group>
       </form>
     </b-row>
@@ -35,12 +33,12 @@
 import { locationService } from '@/services/location.service'
 
 export default {
+  props: ['location'],
   computed: {
     invalidFeedback () {
       return this.building.length > 3
     }
   },
-  props: ['location'],
   data () {
     return {
       building: ''

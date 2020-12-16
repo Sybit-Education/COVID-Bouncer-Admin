@@ -8,8 +8,7 @@
         <b-form-group
           label="2. Step: Setup a location"
           id="location"
-          class="input-styling"
-          :invalid-feedback="invalidFeedback">
+          class="input-styling">
           <b-form-input
             id="input-location"
             v-model="location"

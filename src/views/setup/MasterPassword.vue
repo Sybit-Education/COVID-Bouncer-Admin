@@ -8,8 +8,7 @@
         <b-form-group
           label="1. Step: Setup the master password"
           id="master-password"
-          class="input-styling"
-          :invalid-feedback="invalidFeedback">
+          class="input-styling">
           <b-form-input
             id="input-master-password"
             v-model="masterPassword"
@@ -44,21 +43,13 @@ export default {
     }
   },
   methods: {
-    async setMasterPassword () {
-      const response = await configService.setMasterPassword(this.masterPassword)
-      if (!response) {
-        this.showErrorNotification('Error while setting the master password.')
-      } else {
-        await this.$router.push({ name: 'Location' })
+    setMasterPassword: async function () {
+      try {
+        await configService.setMasterPassword(this.masterPassword)
+      } catch (error) {
+        this.showErrorNotification('Error while setting a new master password')
       }
-    },
-    showErrorNotification (message) {
-      this.$notify({
-        group: 'error',
-        type: 'error',
-        title: 'Important message',
-        text: message
-      })
+      await this.$router.push({ name: 'Location' })
     }
   }
 }
