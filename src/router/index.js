@@ -9,6 +9,7 @@ import Location from '../views/setup/Location'
 import Building from '@/views/setup/Building'
 
 import { userService } from '@/services/user.service'
+import { setupService } from '@/services/setup.service'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,19 @@ const routes = [
     name: 'Home',
     component: Home,
     beforeEnter: isLoggedIn
+  },
+  {
+    path: '/signin',
+    name: 'SignIn',
+    component: SignIn,
+    meta: { displayNavbar: false },
+    beforeEnter: (to, from, next) => {
+      if (userService.isLoggedIn() && setupService.isCompleted) {
+        next({ name: 'Home' })
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/setup/master-password',
@@ -40,19 +54,6 @@ const routes = [
     props: true,
     meta: { displayNavbar: false },
     beforeEnter: isLoggedIn
-  },
-  {
-    path: '/signin',
-    name: 'SignIn',
-    component: SignIn,
-    meta: { displayNavbar: false },
-    beforeEnter: (to, from, next) => {
-      if (userService.isLoggedIn()) {
-        next({ name: 'Home' })
-      } else {
-        next()
-      }
-    }
   },
   {
     path: '/administrators',

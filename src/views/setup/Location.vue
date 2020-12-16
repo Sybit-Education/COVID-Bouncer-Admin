@@ -6,7 +6,7 @@
     <b-row>
       <form>
         <b-form-group
-          label="2. Step: Setup a location"
+          label="2. Step: Add a location"
           id="location"
           class="input-styling">
           <b-form-input

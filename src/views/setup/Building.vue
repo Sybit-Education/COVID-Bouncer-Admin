@@ -6,7 +6,7 @@
     <b-row>
       <form>
         <b-form-group
-          label="3. Step: Setup a Building"
+          label="3. Step: Add a Building"
           id="building"
           class="input-styling">
           <b-form-input
