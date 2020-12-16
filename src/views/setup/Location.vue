@@ -49,17 +49,18 @@ export default {
   data () {
     return {
       location: '',
-      buttonText: ''
+      locationId: ''
     }
   },
   methods: {
-    async addLocation () {
-      const response = await locationService.setLocation(this.location)
-      if (!response) {
+    addLocation: async function () {
+      try {
+        const response = await locationService.setLocation(this.location)
+        this.locationId = response.id
+      } catch (error) {
         this.showErrorNotification('Error while setting a new Location.')
-      } else {
-        await this.$router.push({ name: 'Building', params: { location: response.id } })
       }
+      await this.$router.push({ name: 'Building', params: { location: this.locationId } })
     },
     skipStep () {
       this.$router.push({ name: 'Home' })
@@ -77,11 +78,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .nextButton
-    border: none
-    font-weight: bold
+.nextButton
+  border: none
+  font-weight: bold
 
-    .input-styling:focus
-      box-shadow: 0 0 0 0.2rem rgba(181, 22, 131, 0.25)
-      border: none
+.input-styling:focus
+  box-shadow: 0 0 0 0.2rem rgba(181, 22, 131, 0.25)
+  border: none
 </style>

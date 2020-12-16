@@ -57,9 +57,10 @@ export default {
 
 <style lang="sass" scoped>
 .nextButton
- border: none
- font-weight: bold
+  border: none
+  font-weight: bold
+
 .input-styling:focus
- box-shadow: 0 0 0 0.2rem rgba(181, 22, 131, 0.25)
- border: none
+  box-shadow: 0 0 0 0.2rem rgba(181, 22, 131, 0.25)
+  border: none
 </style>
