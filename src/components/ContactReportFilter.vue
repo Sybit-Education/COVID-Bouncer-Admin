@@ -81,8 +81,7 @@ export default {
       })
     },
     async getContactById () {
-      const response = await contactReportService.getContactsOfUserByID(this.selectedUser, this.selectedDate)
-      this.contacts = response
+      this.contacts = await contactReportService.getContactsOfUserByID(this.selectedUser, this.selectedDate)
     },
     print () {
       window.print()
