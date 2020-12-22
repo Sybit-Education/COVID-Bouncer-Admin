@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <h1>Contact Report</h1>
+    <h1 class="mb-3">Contact Report</h1>
 
     <contact-report-filter />
   </b-container>
