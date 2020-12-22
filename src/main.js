@@ -10,10 +10,10 @@ import * as fbService from './services/firebase.service'
 
 //  Fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret, faChevronLeft, faBorderAll } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faChevronLeft, faPrint } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faUserSecret, faChevronLeft, faBorderAll)
+library.add(faUserSecret, faChevronLeft, faPrint)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(BootstrapVue)
