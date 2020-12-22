@@ -1,7 +1,7 @@
 <template>
   <div id="contact-report-filter">
     <b-row>
-      <b-form inline >
+      <b-form inline class="mb-3">
         <b-form-select
           class="mb-2 mr-sm-2"
           v-model="selectedUser"
