@@ -30,7 +30,7 @@ export default {
         manage: {
           title: 'Contact Report',
           link: 'contact-report',
-          icon: 'border-all'
+          icon: 'print'
         }
       }
 
