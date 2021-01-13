@@ -1,7 +1,7 @@
 <template>
 <b-container class="mt-3 align-content-center">
     <b-row>
-      <h3 class="text-center pb-3">Welcome to the Setup from the COVID-Bouncer Admin</h3>
+      <h3 class="text-center pb-3">Welcome to the Setup of COVID-Bouncer</h3>
     </b-row>
   <b-row>
     <form>
@@ -20,7 +20,7 @@
           </b-form-text>
           <!-- This will only be shown if the preceding input has an invalid state -->
           <b-form-invalid-feedback id="input-live-feedback">
-            Enter at least 5 letters
+            Enter at least 8 letters
           </b-form-invalid-feedback>
           <b-button class="mt-2 sy-background nextButton" v-if="invalidFeedback" @click="setMasterPassword">Next step</b-button>
         </b-form-group>
@@ -34,7 +34,7 @@ import { configService } from '@/services/config.service'
 export default {
   computed: {
     invalidFeedback () {
-      return this.masterPassword.length > 5
+      return this.masterPassword.length < 8
     }
   },
   data () {
@@ -54,13 +54,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-.nextButton
-  border: none
-  font-weight: bold
-
-.input-styling:focus
-  box-shadow: 0 0 0 0.2rem rgba(181, 22, 131, 0.25)
-  border: none
-</style>
