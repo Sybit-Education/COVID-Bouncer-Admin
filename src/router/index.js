@@ -1,9 +1,15 @@
-import { userService } from '@/services/user.service'
-import AdminCredentials from '@/views/AdminCredentials'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home'
+
+import Home from '@/views/Home'
 import SignIn from '../views/SignIn'
+import AdminCredentials from '@/views/AdminCredentials'
+import MasterPassword from '../views/setup/MasterPassword'
+import Location from '../views/setup/Location'
+import Building from '@/views/setup/Building'
+
+import { userService } from '@/services/user.service'
+import { setupService } from '@/services/setup.service'
 
 Vue.use(VueRouter)
 
@@ -12,7 +18,17 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    beforeEnter: guard
+    beforeEnter: async (to, from, next) => {
+      if (userService.isLoggedIn()) {
+        if (await setupService.isSetupCompleted()) {
+          next()
+        } else {
+          next({ name: 'MasterPassword' })
+        }
+      } else {
+        next({ name: 'SignIn' })
+      }
+    }
   },
   {
     path: '/signin',
@@ -28,17 +44,32 @@ const routes = [
     }
   },
   {
+    path: '/setup/master-password',
+    name: 'MasterPassword',
+    component: MasterPassword,
+    meta: { displayNavbar: false },
+    beforeEnter: isLoggedIn
+  },
+  {
+    path: '/setup/location',
+    name: 'Location',
+    component: Location,
+    meta: { displayNavbar: false },
+    beforeEnter: isLoggedIn
+  },
+  {
+    path: '/setup/building',
+    name: 'Building',
+    component: Building,
+    props: true,
+    meta: { displayNavbar: false },
+    beforeEnter: isLoggedIn
+  },
+  {
     path: '/administrators',
     name: 'AdminCredentials',
     component: AdminCredentials,
-    beforeEnter: async (to, from, next) => {
-      const currentUser = await userService.currentUser()
-      if (userService.isLoggedIn() && currentUser.isAdmin === true) {
-        next()
-      } else {
-        next({ name: 'Home' })
-      }
-    }
+    beforeEnter: isLoggedIn
   }
 ]
 
@@ -48,7 +79,7 @@ const router = new VueRouter({
   routes
 })
 
-function guard (to, from, next) {
+function isLoggedIn (to, from, next) {
   if (userService.isLoggedIn()) {
     next()
   } else {
